@@ -135,3 +135,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ],
 }
+
+
+
+# Redirect to home page after login
+LOGIN_REDIRECT_URL = '/base'
