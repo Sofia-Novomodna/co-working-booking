@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Home page{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        <div class="card p-4 bg-white shadow-sm">
+            <h2 class="text-center mb-4 fw-bold text-primary">New Booking</h2>
+            
+            <form method="POST">
+                {% csrf_token %}
+                
+                <!-- Start Time -->
+                <div class="mb-3">
+                    <label class="form-label">Start Time</label>
+                    <input type="datetime-local" name="start_time" class="form-control" value="{{ request.POST.start_time|default:'' }}" required>
+                    {% if errors.start_time %}
+                        <div class="text-danger small mt-1">{{ errors.start_time.0 }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- End Time -->
+                <div class="mb-3">
+                    <label class="form-label">End Time</label>
+                    <input type="datetime-local" name="end_time" class="form-control" value="{{ request.POST.end_time|default:'' }}" required>
+                    {% if errors.end_time %}
+                        <div class="text-danger small mt-1">{{ errors.end_time.0 }}</div>
+                    {% endif %}
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 py-2 mt-2">Confirm Booking</button>
+            </form>
+            
+            <div class="text-center mt-3">
+                <small class="text-muted"><a href="{% url 'home' %}">Back to Home</a></small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

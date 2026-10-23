@@ -26,6 +26,30 @@ def register_view(request):
 def dashboard_view(request):
     return render(request, 'main/dashboard.html')
 
+@login_required
+def home_view(request):
+    return render(request, 'main/home.html')
+
+@login_required
+def booking_view(request):
+    return render(request, 'main/booking.html')
+
+
+@login_required
+def booking_view(request):
+    if request.method == 'POST':
+        start_time = request.POST.get('start_time')
+        end_time = request.POST.get('end_time')
+        
+        # Save the booking and assign the current logged-in user automatically
+        Booking.objects.create(
+            booked_by=request.user,
+            start_time=start_time,
+            end_time=end_time
+        )
+        return redirect('home') # Redirect to home or bookings list after success
+        
+    return render(request, 'main/booking.html')
 
 #class UserRegistrationView(APIView):
     #def post(self, request):

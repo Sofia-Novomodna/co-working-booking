@@ -139,4 +139,4 @@ REST_FRAMEWORK = {
 
 
 # Redirect to home page after login
-LOGIN_REDIRECT_URL = '/base'
+LOGIN_REDIRECT_URL = '/home'

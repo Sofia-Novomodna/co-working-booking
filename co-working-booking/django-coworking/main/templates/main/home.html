@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Home page{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Header Section -->
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold">Welcome to Our Co-Working Space</h1>
+        <p class="text-muted lead">Select a space or service below to book your spot</p>
+    </div>
+
+    <!-- 4x3 Matrix of Interactive Booking Blocks (12 Items) -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        
+        <!-- 1. Hot Desks -->
+        <div class="col">
+            <a href="{% url 'booking' %}" class="text-decoration-none">
+                <div class="card h-100 shadow-sm border-0 booking-card text-center p-4">
+                    <div class="card-body">
+                        <div class="mb-3 text-primary fs-1">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h5 class="card-title fw-bold text-dark">Hot Desks</h5>
+                        <p class="card-text text-muted small">Grab an open desk and get to work in our vibrant common area.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+{% endblock %} 
