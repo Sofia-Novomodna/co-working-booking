@@ -4,6 +4,10 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .serializers import UserRegistrationSerializer
 
+from django.utils import timezone
+from datetime import datetime
+from .models import Room, Booking
+
 # Create your views here.
 
 
@@ -30,26 +34,62 @@ def dashboard_view(request):
 def home_view(request):
     return render(request, 'main/home.html')
 
-@login_required
-def booking_view(request):
-    return render(request, 'main/booking.html')
-
 
 @login_required
 def booking_view(request):
-    if request.method == 'POST':
-        start_time = request.POST.get('start_time')
-        end_time = request.POST.get('end_time')
-        
-        # Save the booking and assign the current logged-in user automatically
-        Booking.objects.create(
-            booked_by=request.user,
-            start_time=start_time,
-            end_time=end_time
-        )
-        return redirect('home') # Redirect to home or bookings list after success
-        
-    return render(request, 'main/booking.html')
+    errors = {}
+    # Fetch all rooms from DB
+    rooms = Room.objects.all()
+
+    if request.method == "POST":
+        room_id = request.POST.get("room")
+        start_time_str = request.POST.get("start_time")
+        end_time_str = request.POST.get("end_time")
+
+        if not room_id:
+            errors["room"] = ["Please select a room."]
+        if not start_time_str:
+            errors["start_time"] = ["Start time is required."]
+        if not end_time_str:
+            errors["end_time"] = ["End time is required."]
+
+        if not errors:
+            try:
+                start_time = timezone.make_aware(datetime.strptime(start_time_str, "%Y-%m-%dT%H:%M"))
+                end_time = timezone.make_aware(datetime.strptime(end_time_str, "%Y-%m-%dT%H:%M"))
+
+                if end_time <= start_time:
+                    errors["end_time"] = ["End time must be after start time."]
+                else:
+                    selected_room = Room.objects.get(id=room_id)
+
+                    # Save record to Booking table
+                    booking = Booking(
+                        room=selected_room,
+                        booked_by=request.user,
+                        start_time=start_time,
+                        end_time=end_time
+                    )
+                    booking.save()
+
+                    messages.success(request, "Booking confirmed successfully!")
+                    return redirect("home")
+
+            except Room.DoesNotExist:
+                errors["room"] = ["Selected room does not exist."]
+            except ValueError:
+                errors["start_time"] = ["Invalid date/time format."]
+
+    # ALWAYS pass rooms in context
+    context = {
+        "rooms": rooms,
+        "errors": errors,
+    }
+    return render(request, "main/booking.html", context)
+
+
+
+
 
 #class UserRegistrationView(APIView):
     #def post(self, request):

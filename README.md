@@ -47,7 +47,7 @@ the group is also necessary.
 
 
 
-how tyo start:
+how to start:
 cd D:\sn\co-working-booking\co-working-booking\django-coworking
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 $env:Path += ";$HOME\.local\bin;$HOME\.cargo\bin"
@@ -75,3 +75,26 @@ useruser001
 
 
 create bookings models
+
+
+
+
+
+<div class="mb-3">
+    <label class="form-label fw-bold text-uppercase small text-secondary">Select Room / Area</label>
+    <select name="room" class="form-select bg-light shadow-none" required>
+        <option value="" disabled selected>Choose a space...</option>
+        {% for room in rooms %}
+            <option value="{{ room.id }}" {% if request.POST.room = room.id|stringformat:"s" %}selected{% endif %}>
+                {{ room.room_name }}
+            </option>
+        {% empty %}
+            <option value="" disabled>No rooms available in database</option>
+        {% endfor %}
+    </select>
+    {% if errors.room %}
+        <div class="text-danger small mt-1">{{ errors.room.0 }}</div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
