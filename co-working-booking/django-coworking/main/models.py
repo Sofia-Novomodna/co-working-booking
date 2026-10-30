@@ -6,14 +6,14 @@ from django.utils import timezone
 
 from django.contrib.auth.models import User
 
-
-class Room(models.Model):
-    class RoomClass(models.TextChoices):
+class RoomClass(models.TextChoices):
         DESKS = "Hot Desks", "Hot Desks"
         OFFICES = "Private Offices", "Private Offices"
         TEAM = "Team Suites", "Team Suites"
         MEETING = "Meeting and Conference Rooms", "Meeting and Conference Rooms"
         LOUNGE = "Lounge and Cafe Areas", "Lounge and Cafe Areas"
+class Room(models.Model):
+
 
     room_name = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)

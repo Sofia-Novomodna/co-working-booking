@@ -98,3 +98,41 @@ create bookings models
 </div>
 
 <div class="mb-3">
+
+
+
+
+
+
+
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+# 1. Start the browser
+driver = webdriver.Chrome()
+
+# 2. Open the form page
+#driver.get("https://www.selenium.dev/selenium/web/web-form.html")
+self.driver.get(self.live_server_url)
+title = driver.title
+driver.implicitly_wait(0.5)
+
+# 3. Find elements and interact with them
+text_box = driver.find_element(by=By.NAME, value="my-text")
+submit_button = driver.find_element(by=By.CSS_SELECTOR, value="button")
+time.sleep(10)
+text_box.send_keys("Selenium")
+time.sleep(1)
+submit_button.click()
+time.sleep(10)
+# 4. Get the result message
+message = driver.find_element(by=By.ID, value="message")
+text = message.text
+print(f"Success message: {text}")
+
+
+time.sleep(10)
+# 5. Close the browser
+driver.quit()

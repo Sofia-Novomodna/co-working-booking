@@ -7,49 +7,12 @@
     <div class="col-md-5">
         <div class="card p-4 bg-white">
             <h2 class="text-center mb-4 fw-bold text-primary">Create account</h2>
-            
-            <form method="POST">
-                {% csrf_token %}
-                
-                <!-- Username -->
-                <div class="mb-3">
-                    <label class="form-label">Username</label>
-                    <input type="text" name="username" class="form-control" value="{{ request.POST.username|default:'' }}" required>
-                    {% if errors.username %}
-                        <div class="text-danger small mt-1">{{ errors.username.0 }}</div>
-                    {% endif %}
-                </div>
-
-                <!-- Email -->
-                <div class="mb-3">
-                    <label class="form-label">Email address</label>
-                    <input type="email" name="email" class="form-control" value="{{ request.POST.email|default:'' }}" required>
-                    {% if errors.email %}
-                        <div class="text-danger small mt-1">{{ errors.email.0 }}</div>
-                    {% endif %}
-                </div>
-
-                <!-- Password -->
-                <div class="mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control" required>
-                    {% if errors.password %}
-                        <div class="text-danger small mt-1">{{ errors.password.0 }}</div>
-                    {% endif %}
-                </div>
-
-                <!-- Confirm Password (password2) -->
-                <div class="mb-3">
-                    <label class="form-label">Confirm Password</label>
-                    <input type="password" name="password2" class="form-control" required>
-                </div>
-
-                <button type="submit" class="btn btn-primary w-100 py-2 mt-2">Register</button>
-            </form>
-            
-            <div class="text-center mt-3">
-                <small class="text-muted">Already have an account? <a href="{% url 'login' %}">Login here</a></small>
-            </div>
+            <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+           
         </div>
     </div>
 </div>

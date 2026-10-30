@@ -22,9 +22,9 @@
         <option value="" disabled selected>Choose a space...</option>
         {% for room in rooms %}
             <option value="{{ room.id }}">{{ room.room_name }}</option>
-        {% empty %}
-            <option value="" disabled>No rooms available in database</option>
-        {% endfor %}
+        #{% empty %}
+            #<option value="" disabled>No rooms available in database</option>
+        #{% endfor %}
     </select>
     {% if errors.room %}
         <div class="text-danger small mt-1">{{ errors.room.0 }}</div>

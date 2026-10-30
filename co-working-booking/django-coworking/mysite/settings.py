@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
-    'rest_framework.authtoken',
-    'rest_framework'
+    #'rest_framework.authtoken',
+    #'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -130,13 +130,13 @@ MAILERS = {
 }
 
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-    ],
-}
+#REST_FRAMEWORK = {
+    #'DEFAULT_AUTHENTICATION_CLASSES': [
+        #'rest_framework.authentication.TokenAuthentication',
+    #],
+#}
 
 
 
 # Redirect to home page after login
-LOGIN_REDIRECT_URL = '/home'
+LOGIN_REDIRECT_URL = '/home/'

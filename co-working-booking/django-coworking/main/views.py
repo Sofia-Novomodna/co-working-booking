@@ -9,22 +9,22 @@ from datetime import datetime
 from .models import Room, Booking
 
 # Create your views here.
-
+from django.shortcuts import render, redirect
+from .forms import RegistrationForm
 
 
 def register_view(request):
-    errors = {}
-    if request.method == 'POST':
-        serializer = UserRegistrationSerializer(data=request.POST)
-        if serializer.is_valid():
-            user = serializer.save()
-            login(request, user)  # Automatically log them in
-            messages.success(request, "Registration successful! Welcome.")
-            return redirect('dashboard')
-        else:
-            errors = serializer.errors
+    if request.method == "POST":
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            # This saves the user to the database
+            form.save() 
+            return redirect('login') # Redirect after successful save
+    else:
+        form = RegistrationForm()
+        
+    return render(request, 'main/register.html', {'form': form})
 
-    return render(request, 'main/register.html', {'errors': errors})
 
 @login_required
 def dashboard_view(request):
