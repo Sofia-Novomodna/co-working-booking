@@ -1,0 +1,87 @@
+{% block title %}<h2 class="fw-bold mb-1" style="color: #3D2314;">Co-Working Space Floor Plan</h2>{% endblock %}
+
+{% block content %}
+        
+    <!-- Page Header -->
+    <div class="mb-4">
+        <p class="text-muted small">map of all zones and areas</p>
+    </div>
+
+    <!-- Map Blueprint Container -->
+    <div class="p-4 p-md-5 rounded-4 border border-2 border-warning border-opacity-50" style="background-color: #FAF6EE; border-style: dashed !important; border-color: #D9C3A1 !important;">
+        <div class="row g-4">
+            
+            <!-- Reception -->
+            <div class="col-md-4 col-lg-3">
+                <button command="show-modal" commandfor="Reception" class="btn p-0 border-0 bg-transparent text-start w-100">
+                <div class="card h-100 p-4 border border-2 border-warning border-opacity-50 shadow-sm d-flex flex-column justify-content-between" style="background-color: rgba(253, 248, 238, 0.85); border-style: dashed !important; border-color: #D9C3A1 !important; min-height: 180px;">
+                    <span class="fw-bold text-uppercase tracking-wider text-secondary">Reception</span>
+                    <span class="text-muted small mt-3">Entrance ↑</span>
+                </div>
+                </button>
+            </div>
+
+            <!-- Shared Workspace -->
+            <div class="col-md-8 col-lg-6">
+                <button command="show-modal" commandfor="Shared" class="btn p-0 border-0 bg-transparent text-start w-100">
+                <div class="card h-100 p-4 border border-2 border-warning border-opacity-50 shadow-sm d-flex flex-column justify-content-between" style="background-color: rgba(253, 248, 238, 0.85); border-style: dashed !important; border-color: #D9C3A1 !important; min-height: 180px;">
+                    <span class="fw-bold text-uppercase tracking-wider text-secondary">Shared Workspace</span>
+                    <div class="text-center text-muted tracking-widest my-2">○ ○ ○ ○</div>
+                </div>
+                </button>
+            </div>
+
+            <!-- Kitchen -->
+            <div class="col-md-4 col-lg-3">
+                <button command="show-modal" commandfor="Kitchen" class="btn p-0 border-0 bg-transparent text-start w-100">
+                <div class="card h-100 p-4 border border-2 border-warning border-opacity-50 shadow-sm d-flex flex-column justify-content-between" style="background-color: rgba(253, 248, 238, 0.85); border-style: dashed !important; border-color: #D9C3A1 !important; min-height: 180px;">
+                    <span class="fw-bold text-uppercase tracking-wider text-secondary">Kitchen</span>
+                    <span class="text-muted small mt-3">Coffee & snacks</span>
+                </div>
+                </button>
+            </div>
+
+            <!-- Private Offices -->
+            <div class="col-md-4 col-lg-3">
+                <button command="show-modal" commandfor="Private" class="btn p-0 border-0 bg-transparent text-start w-100">
+                <div class="card h-100 p-4 border border-2 border-warning border-opacity-50 shadow-sm d-flex flex-column justify-content-between" style="background-color: rgba(253, 248, 238, 0.85); border-style: dashed !important; border-color: #D9C3A1 !important; min-height: 180px;">
+                    <span class="fw-bold text-uppercase tracking-wider text-secondary">Private Offices</span>
+                    <span class="text-muted small mt-3">Quiet Workspaces</span>
+                </div>
+                </button>
+            </div>
+
+            <!-- Team Suites -->
+            <div class="col-md-4 col-lg-3">
+                <button command="show-modal" commandfor="Team" class="btn p-0 border-0 bg-transparent text-start w-100">
+                <div class="card h-100 p-4 border border-2 border-warning border-opacity-50 shadow-sm d-flex flex-column justify-content-between" style="background-color: rgba(253, 248, 238, 0.85); border-style: dashed !important; border-color: #D9C3A1 !important; min-height: 180px;">
+                    <span class="fw-bold text-uppercase tracking-wider text-secondary">Team Suites</span>
+                    <span class="text-muted small mt-3">Dedicated Teams</span>
+                </div>
+                </button>
+            </div>
+
+            <!-- Meeting and Conference Rooms -->
+            <div class="col-md-4 col-lg-3">
+                <button command="show-modal" commandfor="Meeting" class="btn p-0 border-0 bg-transparent text-start w-100">
+                <div class="card h-100 p-4 border border-2 border-warning border-opacity-50 shadow-sm d-flex flex-column justify-content-between" style="background-color: rgba(253, 248, 238, 0.85); border-style: dashed !important; border-color: #D9C3A1 !important; min-height: 180px;">
+                    <span class="fw-bold text-uppercase tracking-wider text-secondary">Meeting and Conference Rooms</span>
+                    <span class="text-muted small mt-3">AV Equipped</span>
+                </div>
+                </button>
+            </div>
+
+            <!-- Lounge and Cafe Areas -->
+            <div class="col-md-4 col-lg-3">
+                <button command="show-modal" commandfor="Lounge" class="btn p-0 border-0 bg-transparent text-start w-100">
+                <div class="card h-100 p-4 border border-2 border-warning border-opacity-50 shadow-sm d-flex flex-column justify-content-between" style="background-color: rgba(253, 248, 238, 0.85); border-style: dashed !important; border-color: #D9C3A1 !important; min-height: 180px;">
+                    <span class="fw-bold text-uppercase tracking-wider text-secondary">Lounge and Cafe Areas</span>
+                    <span class="text-muted small mt-3">Breakout Zone</span>
+                </div>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

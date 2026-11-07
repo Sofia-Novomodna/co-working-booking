@@ -5,74 +5,34 @@
 {% block content %}
 <div class="container py-4 text-dark" style="background-color: #FAF6EE; min-height: 100vh;">
     
-    <!-- Page Header -->
-    <div class="mb-4">
-        <h2 class="fw-bold mb-1" style="color: #3D2314;">Co-Working Space Floor Plan</h2>
-        <p class="text-muted small">map of all zones and areas</p>
-    </div>
 
-    <!-- Map Blueprint Container -->
-    <div class="p-4 p-md-5 rounded-4 border border-2 border-warning border-opacity-50" style="background-color: #FAF6EE; border-style: dashed !important; border-color: #D9C3A1 !important;">
-        <div class="row g-4">
-            
-            <!-- Reception -->
-            <div class="col-md-4 col-lg-3">
-                <div class="card h-100 p-4 border border-2 border-warning border-opacity-50 shadow-sm d-flex flex-column justify-content-between" style="background-color: rgba(253, 248, 238, 0.85); border-style: dashed !important; border-color: #D9C3A1 !important; min-height: 180px;">
-                    <span class="fw-bold text-uppercase tracking-wider text-secondary">Reception</span>
-                    <span class="text-muted small mt-3">Entrance ↑</span>
-                </div>
-            </div>
+<div class="text-center my-4">
+    <button hx-get="/map"
+        hx-swap="outerHTML"
+        hx-target="this"
+        class="px-4 py-2 fw-semibold shadow-sm rounded-pill text-dark"
+        style="background-color: #D68C13; border-color: #D68C13; color: #FFFFFF !important;">
+    Show map
+    </button>
+</div>
 
-            <!-- Shared Workspace -->
-            <div class="col-md-8 col-lg-6">
-                <div class="card h-100 p-4 border border-2 border-warning border-opacity-50 shadow-sm d-flex flex-column justify-content-between" style="background-color: rgba(253, 248, 238, 0.85); border-style: dashed !important; border-color: #D9C3A1 !important; min-height: 180px;">
-                    <span class="fw-bold text-uppercase tracking-wider text-secondary">Shared Workspace</span>
-                    <div class="text-center text-muted tracking-widest my-2">○ ○ ○ ○</div>
-                </div>
-            </div>
+<div class="tab-list" role="tablist">
+	<button hx-get="/tab1" class="selected" role="tab" aria-selected="true" aria-controls="tab-content">Tab 1</button>
+	<button hx-get="/tab2" role="tab" aria-selected="false" aria-controls="tab-content">Tab 2</button>
+	<button hx-get="/tab3" role="tab" aria-selected="false" aria-controls="tab-content">Tab 3</button>
+</div>
 
-            <!-- Kitchen -->
-            <div class="col-md-4 col-lg-3">
-                <div class="card h-100 p-4 border border-2 border-warning border-opacity-50 shadow-sm d-flex flex-column justify-content-between" style="background-color: rgba(253, 248, 238, 0.85); border-style: dashed !important; border-color: #D9C3A1 !important; min-height: 180px;">
-                    <span class="fw-bold text-uppercase tracking-wider text-secondary">Kitchen</span>
-                    <span class="text-muted small mt-3">Coffee & snacks</span>
-                </div>
-            </div>
+<div id="tab-content" role="tabpanel" class="tab-content">
+	Commodo normcore truffaut VHS duis gluten-free keffiyeh iPhone taxidermy godard ramps anim pour-over.
+	Pitchfork vegan mollit umami quinoa aute aliquip kinfolk eiusmod live-edge cardigan ipsum locavore.
+	Polaroid duis occaecat narwhal small batch food truck.
+	PBR&B venmo shaman small batch you probably haven't heard of them hot chicken readymade.
+	Enim tousled cliche woke, typewriter single-origin coffee hella culpa.
+	Art party readymade 90's, asymmetrical hell of fingerstache ipsum.
+</div>
 
-            <!-- Private Offices -->
-            <div class="col-md-4 col-lg-3">
-                <div class="card h-100 p-4 border border-2 border-warning border-opacity-50 shadow-sm d-flex flex-column justify-content-between" style="background-color: rgba(253, 248, 238, 0.85); border-style: dashed !important; border-color: #D9C3A1 !important; min-height: 180px;">
-                    <span class="fw-bold text-uppercase tracking-wider text-secondary">Private Offices</span>
-                    <span class="text-muted small mt-3">Quiet Workspaces</span>
-                </div>
-            </div>
 
-            <!-- Team Suites -->
-            <div class="col-md-4 col-lg-3">
-                <div class="card h-100 p-4 border border-2 border-warning border-opacity-50 shadow-sm d-flex flex-column justify-content-between" style="background-color: rgba(253, 248, 238, 0.85); border-style: dashed !important; border-color: #D9C3A1 !important; min-height: 180px;">
-                    <span class="fw-bold text-uppercase tracking-wider text-secondary">Team Suites</span>
-                    <span class="text-muted small mt-3">Dedicated Teams</span>
-                </div>
-            </div>
 
-            <!-- Meeting and Conference Rooms -->
-            <div class="col-md-4 col-lg-3">
-                <div class="card h-100 p-4 border border-2 border-warning border-opacity-50 shadow-sm d-flex flex-column justify-content-between" style="background-color: rgba(253, 248, 238, 0.85); border-style: dashed !important; border-color: #D9C3A1 !important; min-height: 180px;">
-                    <span class="fw-bold text-uppercase tracking-wider text-secondary">Meeting and Conference Rooms</span>
-                    <span class="text-muted small mt-3">AV Equipped</span>
-                </div>
-            </div>
-
-            <!-- Lounge and Cafe Areas -->
-            <div class="col-md-4 col-lg-3">
-                <div class="card h-100 p-4 border border-2 border-warning border-opacity-50 shadow-sm d-flex flex-column justify-content-between" style="background-color: rgba(253, 248, 238, 0.85); border-style: dashed !important; border-color: #D9C3A1 !important; min-height: 180px;">
-                    <span class="fw-bold text-uppercase tracking-wider text-secondary">Lounge and Cafe Areas</span>
-                    <span class="text-muted small mt-3">Breakout Zone</span>
-                </div>
-            </div>
-
-        </div>
-    </div>
 
 <div class="text-center my-4">
     <a href="{% url 'booking' %}" class="btn btn-warning px-4 py-2 fw-semibold shadow-sm rounded-pill text-dark" style="background-color: #D68C13; border-color: #D68C13; color: #FFFFFF !important;">Book Here</a>
@@ -80,4 +40,103 @@
 
 </div>
 
+
+<container class="descriptions">
+
+<dialog id="Reception" closedby="any">
+  <div class="container">
+  <div class="row">
+    <div class="col">
+        <h1>Reception: </h1>
+        <p>The main welcoming area for checking in, receiving guest assistance, and getting oriented upon arrival. It serves as the primary touchpoint for building support and visitor management</p>
+    </div>
+    <div class="col"><img src="https://thumbs.dreamstime.com/b/red-roses-light-hall-hotel-stand-vases-near-reception-desk-vertical-photo-suite-high-quality-243727285.jpg" alt="Reception" width = 100%></div>
+  </div>
+  </div>
+  <button command="close" commandfor="Reception" class="btn">Close</button>
+</dialog>
+
+<dialog id="Shared" closedby="any">
+  <div class="container">
+  <div class="row">
+    <div class="col">
+        <h1>Shared Workspace: </h1>
+        <p>A dynamic, open seating area designed for flexible working and casual collaboration. Ideal for freelancers and remote professionals seeking an energetic community environment</p>
+    </div>
+    <div class="col"><img src="https://thumbs.dreamstime.com/b/successful-team-coworking-space-vertical-shot-multiracial-coworkers-communicating-sharing-fresh-ideas-successful-team-228038912.jpg" alt="Shared" width = 100%></div>
+  </div>
+  </div>
+  <button command="close" commandfor="Shared" class="btn">Close</button>
+</dialog>
+
+<dialog id="Kitchen" closedby="any">
+  <div class="container">
+  <div class="row">
+    <div class="col">
+        <h1>Kitchen: </h1>
+        <p>A dedicated refreshment zone stocked with coffee, beverages, and quick bites to stay fueled throughout the day. The perfect spot to take a quick break or catch up with fellow members</p>
+    </div>
+    <div class="col"><img src="https://img.magnific.com/premium-photo/biophilic-kitchen-with-vertical-herb-garden_551405-9323.jpg?semt=ais_hybrid&w=740&q=80" alt="Kitchen" width = 100%></div>
+  </div>
+  </div>
+  <button command="close" commandfor="Kitchen" class="btn">Close</button>
+</dialog>
+
+<dialog id="Private" closedby="any">
+  <div class="container">
+  <div class="row">
+    <div class="col">
+        <h1>Private Offices (Quiet Workspaces): </h1>
+        <p>Fully enclosed, quiet spaces tailored for confidential calls and distraction-free deep work. Designed for individuals or small teams who require absolute focus and privacy</p>
+    </div>
+    <div class="col"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyjW_IgscchOjRJlKrUNL5pi8DRFKJmzEZgYmdHVFe9nH99DHan-dwv716&s=10" alt="Private Offices " width = 100%></div>
+  </div>
+  </div>
+  <button command="close" commandfor="Private" class="btn">Close</button>
+</dialog>
+
+<dialog id="Team" closedby="any">
+  <div class="container">
+  <div class="row">
+    <div class="col">
+        <h1>Team Suites: </h1>
+        <p>Exclusive, scalable workspaces customized for growing businesses and dedicated groups. Offers your team a private, secure base while maintaining access to all shared amenities</p>
+    </div>
+    <div class="col"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbSHi8BawPpGrVFp1Airotbo6UJr9ve3iPH5btWsiuOUmUs3LABuguRp_I&s=10" alt="Team Suites" width = 100%></div>
+  </div>
+  </div>
+  <button command="close" commandfor="Team" class="btn">Close</button>
+</dialog>
+
+<dialog id="Meeting" closedby="any">
+  <div class="container">
+  <div class="row">
+    <div class="col">
+        <h1>Meeting & Conference Rooms: </h1>
+        <p>Fully equipped, professional spaces featuring modern audio-visual technology for seamless hybrid calls and presentations. Ideal for hosting client pitches, team brainstorms, and formal workshops</p>
+    </div>
+    <div class="col"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_FmRSCUPnSKQRAipc5F4Z_inTfA2RlPfu0v2TB8mUkg&s=10" alt="Meeting & Conference Rooms" width = 100%></div>
+  </div>
+  </div>
+  <button command="close" commandfor="Meeting" class="btn">Close</button>
+</dialog>
+
+<dialog id="Lounge" closedby="any">
+  <div class="container">
+  <div class="row">
+    <div class="col">
+        <h1>Lounge & Cafe Areas: </h1>
+        <p>Comfortable, informal seating spaces built for relaxation, casual conversations, and informal catch-ups. A laid-back setting to step away from your desk and recharge</p>
+    </div>
+    <div class="col"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRic1juXSqIFdJmD0joKcCm5KaCYT-dX4ixpy4pb-5YtF_898mI8GRN8c82&s=10" alt="Lounge & Cafe Areas" width = 100%></div>
+  </div>
+  </div>
+  <button command="close" commandfor="Lounge" class="btn">Close</button>
+</dialog>
+
+</container>
 {% endblock %}
+
+
+
+

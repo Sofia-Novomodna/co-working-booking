@@ -49,6 +49,7 @@ the group is also necessary.
 
 how to start:
 cd D:\sn\co-working-booking\co-working-booking\django-coworking
+cd /d/sn/study/co-working-booking/co-working-booking/django-coworking
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 $env:Path += ";$HOME\.local\bin;$HOME\.cargo\bin"
 uv --version
