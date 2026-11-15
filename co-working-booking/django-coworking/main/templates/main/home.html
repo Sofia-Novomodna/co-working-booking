@@ -3,42 +3,74 @@
 {% block title %}Co-working Home page{% endblock %}
 
 {% block content %}
-<div class="container py-4 text-dark" style="background-color: #FAF6EE; min-height: 100vh;">
-    
+<style>
+  h3 {
+    color: hsl(4, 41%, 29%);
+  }
+  hr {
+    opacity: 5;
+    color: #da7b08;
+  }
+</style>
 
-<div class="text-center my-4">
-    <button hx-get="/map"
-        hx-swap="outerHTML"
-        hx-target="this"
-        class="px-4 py-2 fw-semibold shadow-sm rounded-pill text-dark"
-        style="background-color: #D68C13; border-color: #D68C13; color: #FFFFFF !important;">
-    Show map
-    </button>
+<div class="row justify-content-center">
+  <div class="col-md-10">
+        <div class="card p-4 bg-white">
+            <h1>Your Flexible Workspace, Built for Focus and Growth</h1>
+            <h5>High-speed fiber internet, soundproof private offices, and vibrant collaborative zones in the heart of the city. Book a desk for a day or move your whole team in tomorrow.</h5>
+            <div class="text-center my-4">
+              <a href="{% url 'booking' %}" class="btn btn-warning fw-semibold shadow-sm text-dark" style="background-color: #da7b08; border-color: #da7b08; color: #FFFFFF !important; width: 100%;">Book Here</a>
+            </div>
+
+            <hr>
+
+            <div class="text-start my-4">
+            <h3>Explore Our Space</h3>   
+            <p>Click any zone on the floor plan below to preview amenities, capacity</p>
+              <button hx-get="/map" hx-swap="outerHTML" hx-target="this" class="btn"
+              style="background-color: #f8bc00; color: #FFFFFF !important; ">
+              Show map
+              </button>
+            </div>
+
+            <hr>
+
+            <h3>Why Choose Us</h3>
+            <div class="row">
+            <div class="col"><strong>Zero Long-Term Lock-In:</strong> Scale up or down month-to-month with transparent pricing and no hidden facility fees.</div>
+            <div class="col"><strong>Enterprise-Grade Tech:</strong> Redundant 1 Gbps symmetric fiber Wi-Fi, 4K AV conference rooms, and instant digital keycard access.</div>   
+            <div class="col"><strong>All-Inclusive Hospitality:</strong> Unlimited locally roasted coffee, front-desk guest reception, mail handling, and daily sanitization. </div>
+            
+            <div class="container py-4" style="height: 10vh;"></div>
+
+            <h3>Member Testimonials</h3>
+            <div class="card border border-2 border-warning border-opacity-50 fst-italic" style="background-color: #f7db87; border-color: #f8bc00 !important;">
+            "Moving our 8-person team into a Private Office here cut our overhead by 40% while giving us access to boardrooms that actually impress clients."
+            <br> <p class="text-sm-end">— Elena R., Co-Founder at FinchTech</p></div>
+            <div class="container py-4" style="height: 1px;"></div>
+            <div class="card border border-2 border-warning border-opacity-50 fst-italic" style="background-color: #f7db87; border-color: #f8bc00 !important;">
+            "The quiet zones and soundproof phone booths are a lifesaver for back-to-back Zoom calls, and the espresso bar beats any café in town."
+            <br> <p class="text-sm-end">— Marcus T., Senior Product Designer</p></div>
+
+            <div class="container py-4" style="height: 3vh;"></div>
+            <hr>
+
+            <div class="text-start my-4">
+            <h3>Ready to Upgrade Your Workday?</h3>
+            <p>Reserve a day pass in 60 seconds, book an AV-equipped meeting room by the hour, or claim your team's private suite today.</p>
+              <a href="{% url 'booking' %}" class="btn btn-warning fw-semibold shadow-sm text-dark" style="background-color: #da7b08; border-color: #da7b08; color: #FFFFFF !important; width: 100%;">Book Here</a>
+              <p class="small text-start">Instant confirmation • Free cancellation up to 24 hours before your booking</p>
+            </div>
+
+            <hr>
+
+            <div id="tabs" hx-get="/tab1" hx-trigger="load" hx-target:inherited="this" hx-swap:inherited="innerMorph"></div>
+            
+</div>
+</div>
 </div>
 
-<div class="tab-list" role="tablist">
-	<button hx-get="/tab1" class="selected" role="tab" aria-selected="true" aria-controls="tab-content">Tab 1</button>
-	<button hx-get="/tab2" role="tab" aria-selected="false" aria-controls="tab-content">Tab 2</button>
-	<button hx-get="/tab3" role="tab" aria-selected="false" aria-controls="tab-content">Tab 3</button>
-</div>
 
-<div id="tab-content" role="tabpanel" class="tab-content">
-	Commodo normcore truffaut VHS duis gluten-free keffiyeh iPhone taxidermy godard ramps anim pour-over.
-	Pitchfork vegan mollit umami quinoa aute aliquip kinfolk eiusmod live-edge cardigan ipsum locavore.
-	Polaroid duis occaecat narwhal small batch food truck.
-	PBR&B venmo shaman small batch you probably haven't heard of them hot chicken readymade.
-	Enim tousled cliche woke, typewriter single-origin coffee hella culpa.
-	Art party readymade 90's, asymmetrical hell of fingerstache ipsum.
-</div>
-
-
-
-
-<div class="text-center my-4">
-    <a href="{% url 'booking' %}" class="btn btn-warning px-4 py-2 fw-semibold shadow-sm rounded-pill text-dark" style="background-color: #D68C13; border-color: #D68C13; color: #FFFFFF !important;">Book Here</a>
-</div>
-
-</div>
 
 
 <container class="descriptions">

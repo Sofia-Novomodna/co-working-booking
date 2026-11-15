@@ -39,6 +39,17 @@ def home_view(request):
 def map_view(request):
     return render(request, 'main/map.html')
 
+@login_required
+def tab1(request):
+    return render(request, 'main/tab1.html')
+@login_required
+def tab2(request):
+    return render(request, 'main/tab2.html')
+@login_required
+def tab3(request):
+    return render(request, 'main/tab3.html')
+
+
 
 @login_required
 def booking_view(request):

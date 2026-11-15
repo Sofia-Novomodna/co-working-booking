@@ -3,21 +3,26 @@
 {% block title %}Booking{% endblock %}
 
 {% block content %}
-<div class="container py-4 text-dark" style="background-color: #FAF6EE; min-height: 100vh; min-height: 100vh;">
-    <div class="row justify-content-center mt-3">
-        <div class="col-md-12">
-            <div class="card p-4 shadow-sm border border-2 border-warning border-opacity-50 rounded-4" style="background-color: rgba(253, 248, 238, 0.95); border-color: #D9C3A1 !important;">
-                <h2 class="text-center mb-4 fw-bold text-primary" style="color: #3D2314;">New Booking</h2>
-                    <form action="" method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <input type="submit" value="Submit">
-                    </form>   
+<style>
+        body {background-image: url(https://www.arteil.com.au/uploads/2022/06/coworking-colour-palette-blog-1.jpg);}
+</style>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        <div class="card p-4 bg-white">
+            <h2 class="text-center fw-bold" style="color: #404664;">New Booking</h2>
+            <br>
+            <form action="" method="post" class="text-center">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <input type="submit" value="Submit" class="btn btn-warning fw-semibold shadow-sm text-dark" style="background-color: #404664; border-color:#404664; color: #FFFFFF !important; width: 100%;">
+            </form>   
+            <div class="container py-4" style="height: 35vh;"></div>
+            <div class="text-sm-end">
+                <a href="{% url 'home' %}" class="btn btn-warning px-4 py-2 fw-semibold shadow-sm rounded-pill text-dark" style="background-color: #8ba6bc; border-color: #8ba6bc; color: #FFFFFF !important;">Go back</a>
             </div>
         </div>
-    </div>
-    <div class="text-center my-4">
-    <a href="{% url 'home' %}" class="btn btn-warning px-4 py-2 fw-semibold shadow-sm rounded-pill text-dark" style="background-color: #D68C13; border-color: #D68C13; color: #FFFFFF !important;">Go back</a>
     </div>
 </div>
 {% endblock %}
