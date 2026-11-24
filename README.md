@@ -63,6 +63,15 @@ uv run py manage.py makemigrations main
 uv run py manage.py migrate 
 uv run python manage.py runserver 
 
+
+
+
+git config user.name "Sofia Novomodna"
+git config user.email "sofia.novomodna@gmail.com"
+
+
+
+
 admin
 sophianovo666
 
@@ -75,7 +84,6 @@ useruser001
 
 
 
-create bookings models
 
 
 
