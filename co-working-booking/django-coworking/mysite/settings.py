@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
+    'django_tables2',
     #'rest_framework.authtoken',
     #'rest_framework'
 ]

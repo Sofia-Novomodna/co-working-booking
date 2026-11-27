@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Booking{% endblock %}
+{% load django_tables2 %}
+
+{% block content %}
+<style>
+        body {background-image: url(https://www.arteil.com.au/uploads/2022/06/coworking-colour-palette-blog-1.jpg);}
+</style>
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card p-4 bg-white">
+            <h2 class="text-center" style="color: #404664;">Bookings Data</h2>
+            <br>
+            <div>
+            {% render_table table %}
+            </div>
+            <div class="text-sm-end">
+                <a href="{% url 'booking' %}" class="btn btn-warning px-4 py-2 fw-semibold shadow-sm rounded-pill text-dark" style="background-color: #8ba6bc; border-color: #8ba6bc; color: #FFFFFF !important;">Go back</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

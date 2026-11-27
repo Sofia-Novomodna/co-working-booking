@@ -50,26 +50,84 @@ def tab3(request):
     return render(request, 'main/tab3.html')
 
 
+from django.db import transaction
 
 @login_required
 def booking_view(request):
     if request.method == "POST":
         form = BookingForm(request.POST)
         if form.is_valid():
-            # This saves the user to the database
-            # 1. Create the booking object, but don't save to DB yet
-            booking = form.save(commit=False)
-            # 2. Automatically assign the logged-in user
-            booking.booked_by = request.user
-            # 3. Now save it to the database
-            booking.save()
-            return redirect('home') # Redirect after successful save
+            room = form.cleaned_data["room"]
+            start_time = form.cleaned_data["start_time"]
+            end_time = form.cleaned_data["end_time"]
+
+            with transaction.atomic():
+                # Lock the room row until this transaction commits
+                Room.objects.select_for_update().get(pk=room.pk)
+
+                conflict_exists = Booking.objects.filter(
+                    room=room,
+                    booked_by__isnull=False,
+                    start_time__lt=end_time,
+                    end_time__gt=start_time,
+                ).exists()
+
+                if conflict_exists:
+                    form.add_error(
+                        None,
+                        "This room was just booked by someone else for that time.",
+                    )
+                else:
+                    booking = form.save(commit=False)
+                    booking.booked_by = request.user
+                    booking.save()
+                    return redirect("home")
     else:
         form = BookingForm()
+
+    return render(request, "main/booking.html", {"form": form})
+
+
+
+
+
+
+from django.shortcuts import render
+from .models import Booking
+import django_tables2 as tables
+
+class BookingTable(tables.Table):
+    class Meta:
+        model = Booking
+        template_name = "django_tables2/bootstrap.html"
+        fields = ("room", "booked_by", "start_time", "end_time")
+        exclude = ["booked_by"]
+
+
+class TableView(tables.SingleTableView):
+    table_class = BookingTable
+    template_name = "main/table_bookings.html"
+    paginate_by = 5
+
+    def get_queryset(self):
+        return Booking.objects.exclude(
+            room__room_name="Desks",
+            room__room_class="Hot Desks",
+        )
         
-    return render(request, "main/booking.html", {'form': form})
 
 
+
+
+
+#class TableView(tables.SingleTableView):
+    #table_class = BookingTable
+    #queryset = Booking.objects.all()
+    #template_name = "main/table_bookings.html"
+    #paginate_by = 10  # Show 10 records per page
+
+    #def get_queryset(self):
+        #return Booking.objects.exclude(room__room_name__icontains="Hot Desks")
 
 
 
