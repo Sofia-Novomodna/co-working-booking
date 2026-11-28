@@ -31,21 +31,16 @@ def register_view(request):
 def dashboard_view(request):
     return render(request, 'main/dashboard.html')
 
-@login_required
 def home_view(request):
     return render(request, 'main/home.html')
 
-@login_required
 def map_view(request):
     return render(request, 'main/map.html')
 
-@login_required
 def tab1(request):
     return render(request, 'main/tab1.html')
-@login_required
 def tab2(request):
     return render(request, 'main/tab2.html')
-@login_required
 def tab3(request):
     return render(request, 'main/tab3.html')
 
@@ -115,6 +110,18 @@ class TableView(tables.SingleTableView):
             room__room_class="Hot Desks",
         )
         
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+class MyBookingsView(LoginRequiredMixin, tables.SingleTableView):
+    table_class = BookingTable
+    template_name = "main/my_bookings.html"
+    paginate_by = 5
+
+    def get_queryset(self):
+        return (
+            Booking.objects.select_related("booked_by")
+            .filter(booked_by=self.request.user)
+        )
 
 
 

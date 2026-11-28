@@ -81,9 +81,12 @@ useruser001
 
 
 
-
-
-
+Tasks:
+- Membership Plans & Credits System: You listed Day Pass, Hot Desk, and Dedicated Deck plans with perks like "2 hours of complimentary meeting room credits". Create a UserProfile model (linked via OneToOneField to User) that stores:
+Active subscription tier
+Remaining meeting room hours/credits
+Automatically deduct credits or calculate the total price (duration * room.hourly_rate) before confirming a booking!
+-Export to Calendar (.ics file) or CSV: Add a button on a confirmed booking to "Add to Calendar" by generating a downloadable .ics file in a Django view,
 
 
 

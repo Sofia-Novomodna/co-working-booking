@@ -12,19 +12,19 @@
         <div class="card p-4 bg-white">
             <h2 class="text-center" style="color: #404664;">New Booking</h2>
             <br>
-            <form action="" method="post" class="text-center">
+            <form action="" method="post" class="text-left">
             {% csrf_token %}
             {{ form.as_p }}
             <br>
-            <input type="submit" value="Submit" class="btn btn-warning fw-semibold shadow-sm text-dark" style="background-color: #404664; border-color:#404664; color: #FFFFFF !important; width: 100%;">
+            <input type="submit" value="Submit" class="btn" style="background-color: #404664; color: #FFFFFF !important; width: 100%;">
             </form>   
-            <br>
-            <div class="text-center">
-                <a href="{% url 'table' %}" class="btn btn-warning px-4 py-2 fw-semibold shadow-sm rounded-pill text-dark" style="background-color: #8ba6bc; border-color: #8ba6bc; color: #FFFFFF !important;">Bookings Data</a>
+            <br><br>
+            <div class="text-left">
+                <a href="{% url 'table' %}" class="btn" style="background-color: #8ba6bc; color: #FFFFFF !important;">Bookings Data</a>
             </div>
             <div class="container py-4" style="height: 35vh;"></div>
             <div class="text-sm-end">
-                <a href="{% url 'home' %}" class="btn btn-warning px-4 py-2 fw-semibold shadow-sm rounded-pill text-dark" style="background-color: #8ba6bc; border-color: #8ba6bc; color: #FFFFFF !important;">Go back</a>
+                <a href="{% url 'home' %}" class="btn" style="background-color: #8ba6bc; color: #FFFFFF !important;">Go back</a>
             </div>
         </div>
     </div>
